@@ -56,7 +56,7 @@ export default class ImageStyleCommand extends Command {
 	refresh() {
 		const element = this.editor.model.document.selection.getSelectedElement();
 
-		this.isEnabled = isImage( element );
+		this.isEnabled = isImage( element ) && element.parent.name !== 'spoilerContent';
 
 		if ( !element ) {
 			this.value = false;
